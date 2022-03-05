@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../sass/bar_chart.scss"
+    ],
+    "names": [],
+    "file": "bar_chart.css"
+}
