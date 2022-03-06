@@ -6,6 +6,7 @@ const speeds = document.querySelectorAll('input[name="speed"]');
 const sort_algos = document.querySelectorAll('input[name="sort-algo"]');
 
 slider.addEventListener("click", () => {
+    SORTED = false;
     updateOverview();
     const val = document.getElementById("slider_val").value;
     numbers = generateRandomList(val);
@@ -27,13 +28,42 @@ btn_start.addEventListener("click", () => {
     // getSortParams();
     // console.log(document.getElementById("slider_val").value);
 
-    if (validateStart()) {
+    if (SORTED) {
+        console.log("Aready sorted..");
+    }
+
+    if (validateStart() && !SORTED) {
         console.log("SORTING STARTED!!!");
         hideStartButton();
         displayMessage("Sorting...");
         // startSort(0, "bubble", 0);
 
         disableControls();
+        params = getSortParams();
+        console.log("XX");
+        console.log(params);
+
+        async function start() {
+            const sorted = await startSort(params[0], params[1], params[2]);
+            console.log(sorted);
+            return sorted;
+        }
+
+        start().then((sorted) => {
+            hideMessage();
+            showStartButton();
+            enableControls();
+            console.log("LIST sorted");
+            console.log(sorted);
+            console.log("end");
+            generateChart(sorted, null, colours.GREEN);
+            SORTED = true;
+        });
+
+        // x()
+        //     .then((m) => console.log(m))
+        //     .catch((err) => console.log(err));
+        // const sorted = await bubbleSort(params[0], 0);
     } else {
         console.log("NOT STARTED");
     }
@@ -56,11 +86,4 @@ btn_start.addEventListener("click", () => {
 
     // console.log(speed_settings2);
     // console.log(speed_settings);
-});
-
-// const x = speed_settings.find;
-const testbtn = document.getElementById("btn_enable_test");
-testbtn.addEventListener("click", () => {
-    hideMessage();
-    enableControls();
 });

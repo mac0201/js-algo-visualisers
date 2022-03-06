@@ -55,8 +55,8 @@
             <!--! RADIO BUTTONS SOURCE - https://codepen.io/Metty/pen/MWjOavR -->
             <div class="wrapper">
                 <input type="radio" name="sort-algo" id="algo-bubble" value="bubble"> <!-- onchange="update()" -->
-                <input type="radio" name="sort-algo" id="algo-merge" value="merge" >
-                <input type="radio" name="sort-algo" id="algo-quick" value="quicksort" >
+                <input type="radio" name="sort-algo" id="algo-merge" value="merge" disabled>
+                <input type="radio" name="sort-algo" id="algo-quick" value="quicksort" disabled>
                     <label for="algo-bubble" class="option algo-bubble blue">
                     <div class="dot"></div>
                         <span>Bubble</span>
@@ -85,32 +85,20 @@
             <!-- <div class="label">Start</div> -->
             <button id="btn_start">Start</button>
         </div>
-
-
     </section>
-
-
 
 
 
     <section id="chart_container">
-
-    
-
-
     </section>
 
-    <button id="btn_enable_test">enable</button>
 
-
-    <p>Successfully sorted list containing XX elements using XX sort.</p>
-
-    <section></section>
 
 
     <script src="../js/helpers.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/listeners.js"></script>
+    <script src="../algorithms/bubble.js"></script>
     
 </body>
 </html>

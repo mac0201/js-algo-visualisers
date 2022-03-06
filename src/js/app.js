@@ -1,6 +1,8 @@
 //! Main file
 const parent = document.querySelector("#chart_container");
 
+let SORTED = false;
+
 let listToSort = [];
 
 // Generate N random numbers between 5 and 1000. Return list of numbers
@@ -14,17 +16,29 @@ const generateRandomList = (n) => {
     return list;
 };
 
-const createBar = (value) => {
+const createBar = (value, colour) => {
     bar = document.createElement("div");
     bar.className = "bar";
-    bar.style = `height: ${value / 2}px;`;
+    bar.style = `height: ${value / 2}px; background: ${colour}`;
     parent.appendChild(bar);
 };
 
-const generateChart = (numbers) => {
+// const generateChart = (numbers) => {
+//     clearDiv(parent);
+//     for (let i of numbers) {
+//         createBar(i);
+//     }
+// };
+
+const generateChart = (numbers, j = null, defaultColor = colours.PURPLE) => {
     clearDiv(parent);
-    for (let i of numbers) {
-        createBar(i);
+    for (let i = 0; i < numbers.length; i++) {
+        // createBar(numbers[i], "yellow");
+        if (i == j) {
+            createBar(numbers[i], colours.RED);
+        } else {
+            createBar(numbers[i], defaultColor);
+        }
     }
 };
 
@@ -64,14 +78,15 @@ const getSortParams = () => {
     List:       ${list}
     `;
     console.log(params);
-    return list, algorithm, speed_int;
+    return [list, algorithm, speed_int];
 };
 
-const startSort = (list, algorithm, speed) => {
+async function startSort(list, algorithm, speed) {
     switch (algorithm) {
         case "bubble":
             console.log("bubble");
-            break;
+            const bubble = await bubbleSort(list, speed);
+            return bubble;
         case "merge":
             console.log("merge");
             break;
@@ -82,4 +97,4 @@ const startSort = (list, algorithm, speed) => {
             console.log("UNKNOWN");
             break;
     }
-};
+}

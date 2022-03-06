@@ -10,14 +10,13 @@ const colours = {
 };
 
 const speeds_ms = {
-    slow: 400,
-    medium: 300,
-    fast: 200,
+    slow: 30,
+    medium: 15,
+    fast: 5,
 };
 
 const clearDiv = (div_name) => {
     div_name.innerHTML = "";
-    console.log(`${div_name} cleared.`);
 };
 
 const overview = document.querySelector(".overview");
