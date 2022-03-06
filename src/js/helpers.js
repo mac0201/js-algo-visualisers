@@ -61,24 +61,41 @@ const getCheckedRadio = (parent) => {
     return null;
 };
 
-const changed = (speed) => {
-    console.log(`Changed to ${speed.value}`);
-};
+const controls = document.getElementById("controls");
 
-// ! Change to toggle controls
+// Disable controls for changing sort parameters
 const disableControls = () => {
-    const controls = document.getElementById("controls");
-
-    if (controls.classList.contains("disabled")) {
-        // Enable
-        console.log("Enabled");
-        controls.classList.remove("disabled");
-    } else {
-        // Disable
-        console.log("Disabled");
+    if (!controls.classList.contains("disabled")) {
         controls.classList.add("disabled");
+        console.log("Controls disabled.");
     }
-    // controls.className = 'disabled';
 };
 
-const enableControls = () => {};
+// Enable controls for changing sort parameters
+const enableControls = () => {
+    if (controls.classList.contains("disabled")) {
+        controls.classList.remove("disabled");
+        console.log("Controls enabled");
+    }
+    showStartButton();
+};
+
+const displayMessage = (txt) => {
+    const msg_div = document.createElement("div");
+    msg_div.className = "alert_message";
+    msg_div.innerHTML = txt;
+    controls.appendChild(msg_div);
+};
+
+const hideMessage = () => {
+    const msg = document.querySelector(".alert_message");
+    controls.removeChild(msg);
+};
+
+const hideStartButton = () => {
+    btn_start.style = "display: none";
+};
+
+const showStartButton = () => {
+    btn_start.style = "display: inline-block";
+};

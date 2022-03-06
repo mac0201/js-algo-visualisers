@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorting Algorithms Visualiser</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hubballi&display=swap" rel="stylesheet"> 
+
     <link rel="stylesheet" href="../styles/css/styles_main.css">
     <link rel="stylesheet" href="../styles/css/bar_chart.css">
     <link rel="stylesheet" href="../styles/css/radios.css">
@@ -53,15 +57,15 @@
                 <input type="radio" name="sort-algo" id="algo-bubble" value="bubble"> <!-- onchange="update()" -->
                 <input type="radio" name="sort-algo" id="algo-merge" value="merge" >
                 <input type="radio" name="sort-algo" id="algo-quick" value="quicksort" >
-                    <label for="algo-bubble" class="option algo-bubble">
+                    <label for="algo-bubble" class="option algo-bubble blue">
                     <div class="dot"></div>
                         <span>Bubble</span>
                         </label>
-                    <label for="algo-merge" class="option algo-merge">
+                    <label for="algo-merge" class="option algo-merge blue">
                     <div class="dot"></div>
                         <span>Merge</span>
                     </label>
-                    <label for="algo-quick" class="option algo-quick">
+                    <label for="algo-quick" class="option algo-quick blue">
                     <div class="dot"></div>
                         <span>Quicksort</span>
                     </label>
@@ -82,18 +86,21 @@
             <button id="btn_start">Start</button>
         </div>
 
+
     </section>
+
 
 
 
 
     <section id="chart_container">
 
-
     
 
 
     </section>
+
+    <button id="btn_enable_test">enable</button>
 
 
     <p>Successfully sorted list containing XX elements using XX sort.</p>

@@ -29,7 +29,11 @@ btn_start.addEventListener("click", () => {
 
     if (validateStart()) {
         console.log("SORTING STARTED!!!");
-        startSort(0, "bubble", 0);
+        hideStartButton();
+        displayMessage("Sorting...");
+        // startSort(0, "bubble", 0);
+
+        disableControls();
     } else {
         console.log("NOT STARTED");
     }
@@ -55,3 +59,8 @@ btn_start.addEventListener("click", () => {
 });
 
 // const x = speed_settings.find;
+const testbtn = document.getElementById("btn_enable_test");
+testbtn.addEventListener("click", () => {
+    hideMessage();
+    enableControls();
+});
