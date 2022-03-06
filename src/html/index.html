@@ -8,37 +8,71 @@
 
     <link rel="stylesheet" href="../styles/css/styles_main.css">
     <link rel="stylesheet" href="../styles/css/bar_chart.css">
+    <link rel="stylesheet" href="../styles/css/radios.css">
 </head>
-<body>
+<body onload="initialChart()">
 
-    <section id="controls">
+    <section id="controls" >
 
-        <div class="label">Algorithm choice</div>
+        <div class="label">Speed</div>
         <div class="speed_settings">
-            <button class="secondary">Slow</button>
-            <button class="secondary">Medium</button>
-            <button class="secondary">Fast</button>
+            <!--! RADIO BUTTONS SOURCE - https://codepen.io/Metty/pen/MWjOavR -->
+            <div class="wrapper">
+                <input type="radio" name="speed" id="speed-1" value="slow"> <!-- onchange="update()" -->
+                <input type="radio" name="speed" id="speed-2" value="medium" >
+                <input type="radio" name="speed" id="speed-3" value="fast" >
+                  <label for="speed-1" class="option speed-1">
+                    <div class="dot"></div>
+                     <span>Slow</span>
+                     </label>
+                  <label for="speed-2" class="option speed-2">
+                    <div class="dot"></div>
+                     <span>Medium</span>
+                  </label>
+                  <label for="speed-3" class="option speed-3">
+                    <div class="dot"></div>
+                     <span>Fast</span>
+                  </label>
+            </div>
         </div>
+
 
         <div class="label">List size</div>
         <div class="array_settings">
             <div id="size_slider">
                 <span>5</span>
-                <input type="range" min="5" max="100" value="40" id="slider_val">
+                <input type="range" min="5" max="100" value="50" id="slider_val">
                 <span>100</span>
             </div>
         </div>
 
-        <div class="label">Speed</div>
+        <div class="label">Algorithm choice</div>
         <div class="algo_settings">
-            <button class="primary">Merge</button>
-            <button class="primary">Quick</button>
-            <button class="primary">Bubble</button>
+            <!--! RADIO BUTTONS SOURCE - https://codepen.io/Metty/pen/MWjOavR -->
+            <div class="wrapper">
+                <input type="radio" name="sort-algo" id="algo-bubble" value="bubble"> <!-- onchange="update()" -->
+                <input type="radio" name="sort-algo" id="algo-merge" value="merge" >
+                <input type="radio" name="sort-algo" id="algo-quick" value="quicksort" >
+                    <label for="algo-bubble" class="option algo-bubble">
+                    <div class="dot"></div>
+                        <span>Bubble</span>
+                        </label>
+                    <label for="algo-merge" class="option algo-merge">
+                    <div class="dot"></div>
+                        <span>Merge</span>
+                    </label>
+                    <label for="algo-quick" class="option algo-quick">
+                    <div class="dot"></div>
+                        <span>Quicksort</span>
+                    </label>
+            </div>
         </div>
 
-        <div class="overview">
-            <div class="label">Overview</div>
-            <p>Size: _  xxx  </p>
+
+        <div class="overview hidden">
+            <p>Speed: <span id="overview_speed">_</span></p>
+            <p>Size: <span id="overview_size">_</span></p>
+            <p>Algorithm: <span id="overview_algo">_</span></p>
         </div>
 
 
@@ -51,8 +85,12 @@
     </section>
 
 
+
+
     <section id="chart_container">
 
+
+    
 
 
     </section>

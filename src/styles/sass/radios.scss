@@ -1,0 +1,110 @@
+// !!! RADIO https://codepen.io/Metty/pen/MWjOavR 
+.wrapper{
+    display: inline-flex;
+  //   background: #fff;
+  //   height: 100px;
+  //   width: 400px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    padding: 20px 15px;
+  //   box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+  }
+  .wrapper .option{
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 2px solid lightgrey;
+    transition: all 0.3s ease;
+  }
+  .wrapper .option .dot{
+    height: 15px;
+    width: 15px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    position: relative;
+  }
+  .wrapper .option .dot::before{
+    position: absolute;
+    content: "";
+    top: 2px;
+    left: 2px;
+    width: 11px;
+    height: 11px;
+    background: #0400ff;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(1.5);
+    transition: all 0.3s ease;
+  }
+  
+  #controls input[type="radio"]{
+    display: none;
+  }
+  
+  
+  #speed-1:checked:checked ~ .speed-1,
+  #speed-2:checked:checked ~ .speed-2,
+  #speed-3:checked:checked ~ .speed-3,
+  #algo-bubble:checked:checked ~ .algo-bubble,
+  #algo-merge:checked:checked ~ .algo-merge,
+  #algo-quick:checked:checked ~ .algo-quick
+  {
+    border-color: #0069d9;
+    background: #0069d9;
+  }
+
+
+  #speed-1:checked:checked ~ .speed-1 .dot,
+  #speed-2:checked:checked ~ .speed-2 .dot,
+  #speed-3:checked:checked ~ .speed-3 .dot,
+
+  #algo-bubble:checked:checked ~ .algo-bubble .dot,
+  #algo-merge:checked:checked ~ .algo-merge .dot,
+  #algo-quick:checked:checked ~ .algo-quick .dot
+  {
+    background: #fff;
+  }
+
+
+
+
+  #speed-1:checked:checked ~ .speed-1 .dot::before,
+  #speed-2:checked:checked ~ .speed-2 .dot::before,
+  #speed-3:checked:checked ~ .speed-3 .dot::before,
+
+  #algo-bubble:checked:checked ~ .algo-bubble .dot::before,
+  #algo-merge:checked:checked ~ .algo-merge .dot::before,
+  #algo-quick:checked:checked ~ .algo-quick .dot::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+
+  .wrapper .option span{
+    font-size: 15px;
+    color: #808080;
+  }
+
+
+  #speed-1:checked:checked ~ .speed-1 span,
+  #speed-2:checked:checked ~ .speed-2 span,
+  #speed-3:checked:checked ~ .speed-3 span,
+
+  #algo-bubble:checked:checked ~ .algo-bubble span,
+  #algo-merge:checked:checked ~ .algo-merge span,
+  #algo-quick:checked:checked ~ .algo-quick span
+  {
+    color: #fff;
+  }
+  
+  .wrapper span {
+      margin: 0 5px;
+  }
