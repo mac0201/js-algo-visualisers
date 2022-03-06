@@ -1,1 +1,21 @@
-/* No CSS *//*# sourceMappingURL=bar_chart.css.map */
+#chart_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 1000px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+.bar {
+  background-color: yellow;
+  width: 20px;
+  border: 1px solid lightgray;
+}
+/*# sourceMappingURL=bar_chart.css.map */

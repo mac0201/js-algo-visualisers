@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAEA,AAAA,gBAAgB,CAAC;EAEb,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,QAAQ;EACrB,eAAe,EAAE,MAAM;EAEvB,KAAK,EAAE,MAAM;EACb,MAAM,EAAE,KAAK;EACb,MAAM,EAAE,MAAM;CAEjB;;AAGD,AAAA,IAAI,CAAC;EACD,gBAAgB,EAAE,MAAM;EACxB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,mBAAmB;CAG9B",
     "sources": [
-        "../sass/bar_chart.scss"
+        "../sass/bar_chart.scss",
+        "../sass/mixins.scss"
     ],
     "names": [],
     "file": "bar_chart.css"
