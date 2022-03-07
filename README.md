@@ -4,6 +4,8 @@ ___
 
 This is a personal project that demonstrates how sorting algorithms work under the hood.
 
+####[View Sorting Algorithm Visualiser](https://mac0201.github.io/js-algo-visualisers/src/html/index.html)
+
 <br>
 
 **Available algorithms:**
@@ -16,6 +18,3 @@ This is a personal project that demonstrates how sorting algorithms work under t
 Created using HTML, CSS, and JavaScript
 
 
-
-
-https://htmlpreview.github.io/?https://github.com/mac0201/js-algo-visualisers/blob/gh-pages/src/html/index.html
