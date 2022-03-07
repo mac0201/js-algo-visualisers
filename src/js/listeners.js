@@ -24,23 +24,13 @@ sort_algos.forEach((algo) =>
 );
 
 btn_start.addEventListener("click", () => {
-    console.log("STARTED");
-    // getSortParams();
-    // console.log(document.getElementById("slider_val").value);
-
     if (SORTED) {
         console.log("Aready sorted..");
-    }
-
-    if (validateStart() && !SORTED) {
-        console.log("SORTING STARTED!!!");
+    } else if (validateStart() && !SORTED) {
         hideStartButton();
         displayMessage("Sorting...");
-        // startSort(0, "bubble", 0);
-
         disableControls();
         params = getSortParams();
-        console.log("XX");
         console.log(params);
 
         async function start() {
@@ -53,8 +43,6 @@ btn_start.addEventListener("click", () => {
             hideMessage();
             showStartButton();
             enableControls();
-            console.log("LIST sorted");
-            console.log(sorted);
             console.log("end");
             generateChart(sorted, null, colours.GREEN);
             SORTED = true;
@@ -64,8 +52,6 @@ btn_start.addEventListener("click", () => {
         //     .then((m) => console.log(m))
         //     .catch((err) => console.log(err));
         // const sorted = await bubbleSort(params[0], 0);
-    } else {
-        console.log("NOT STARTED");
     }
     // disableControls();
     // !! Start button should be disabled until speed and algorithm is set

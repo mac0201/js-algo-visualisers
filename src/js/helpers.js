@@ -10,9 +10,9 @@ const colours = {
 };
 
 const speeds_ms = {
-    slow: 30,
-    medium: 15,
-    fast: 5,
+    slow: 200,
+    medium: 50,
+    fast: 1,
 };
 
 const clearDiv = (div_name) => {

@@ -1,8 +1,10 @@
 //! Main file
 const parent = document.querySelector("#chart_container");
+const query_speeds = document.querySelectorAll('input[name="speed"]');
+const query_algos = document.querySelectorAll('input[name="sort-algo"]');
 
+const listColour = colours.BLUE;
 let SORTED = false;
-
 let listToSort = [];
 
 // Generate N random numbers between 5 and 1000. Return list of numbers
@@ -16,6 +18,7 @@ const generateRandomList = (n) => {
     return list;
 };
 
+// Creates a bar element with variable length (value) and selected colour. Appends to chart container
 const createBar = (value, colour) => {
     bar = document.createElement("div");
     bar.className = "bar";
@@ -23,25 +26,21 @@ const createBar = (value, colour) => {
     parent.appendChild(bar);
 };
 
-// const generateChart = (numbers) => {
-//     clearDiv(parent);
-//     for (let i of numbers) {
-//         createBar(i);
-//     }
-// };
-
-const generateChart = (numbers, j = null, defaultColor = colours.PURPLE) => {
+// Generates a chart by creating required number of bars based on list length
+const generateChart = (numbers, j = null, colour = listColour) => {
     clearDiv(parent);
     for (let i = 0; i < numbers.length; i++) {
         // createBar(numbers[i], "yellow");
-        if (i == j) {
-            createBar(numbers[i], colours.RED);
-        } else {
-            createBar(numbers[i], defaultColor);
-        }
+        // if (i == j) {
+        //     createBar(numbers[i], colours.RED);
+        // } else {
+        //     createBar(numbers[i], defaultColor);
+        // }
+        createBar(numbers[i], colour);
     }
 };
 
+// Renders initial chart on page load
 const initialChart = () => {
     initialList = generateRandomList(50);
     console.log(initialList);
@@ -49,9 +48,8 @@ const initialChart = () => {
     getSortParams();
 };
 
+// Check whether required options have been selected
 const validateStart = () => {
-    const query_speeds = document.querySelectorAll('input[name="speed"]');
-    const query_algos = document.querySelectorAll('input[name="sort-algo"]');
     if (getCheckedRadio(query_speeds) && getCheckedRadio(query_algos)) {
         console.log("Valid start");
         return true;
@@ -60,13 +58,8 @@ const validateStart = () => {
     return false;
 };
 
-const test = () => {
-    console.log("hi");
-};
-
+// Fetch chosen settings and return a list
 const getSortParams = () => {
-    const query_speeds = document.querySelectorAll('input[name="speed"]');
-    const query_algos = document.querySelectorAll('input[name="sort-algo"]');
     const speed = getCheckedRadio(query_speeds);
     const algorithm = getCheckedRadio(query_algos);
     const list = listToSort;
@@ -81,6 +74,7 @@ const getSortParams = () => {
     return [list, algorithm, speed_int];
 };
 
+// Starts the chosen algorithm
 async function startSort(list, algorithm, speed) {
     switch (algorithm) {
         case "bubble":
@@ -98,3 +92,15 @@ async function startSort(list, algorithm, speed) {
             break;
     }
 }
+
+// Changes the colour of adjacent bar pairs to show which elements are being compared
+const changeBarColor = (i, j) => {
+    const bars = document.querySelectorAll(".bar");
+    bars[i].style["background-color"] = colours.RED; // Current highest
+    bars[j].style["background-color"] = colours.PURPLE; // Compared
+};
+
+const sortedBarColor = (i) => {
+    const bars = document.querySelectorAll(".bar");
+    bars[i].style["background-color"] = colours.GREEN;
+};
