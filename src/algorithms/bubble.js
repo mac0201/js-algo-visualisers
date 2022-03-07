@@ -3,7 +3,6 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 async function bubbleSort(list, delay_ms) {
     // hold indices of sorted elements to change colour
     const sortedIndices = [];
-
     for (let i = 0; i < list.length; i++) {
         // j will be used to compare adjacent pairings
         for (let j = 0; j < list.length - 1 - i; j++) {
@@ -17,8 +16,8 @@ async function bubbleSort(list, delay_ms) {
                 await delay(delay_ms);
             }
         }
+        // Push the sorted index
         sortedIndices.push(list.length - 1 - i);
     }
-    console.log("sorted");
     return list;
 }

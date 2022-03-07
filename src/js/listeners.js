@@ -12,7 +12,6 @@ slider.addEventListener("click", () => {
     numbers = generateRandomList(val);
     generateChart(numbers);
     console.log(numbers);
-    getSortParams();
 });
 
 speeds.forEach((speed) =>
@@ -28,24 +27,29 @@ btn_start.addEventListener("click", () => {
         console.log("Aready sorted..");
     } else if (validateStart() && !SORTED) {
         hideStartButton();
-        displayMessage("Sorting...");
         disableControls();
-        params = getSortParams();
-        console.log(params);
+        displayMessage("Sorting...");
 
-        async function start() {
-            const sorted = await startSort(params[0], params[1], params[2]);
+        params = getSortParams();
+
+        // Async function that starts the sort
+        async function launch() {
+            console.log("Sorting started");
+            const [list, algorithm, speed] = params;
+            const sorted = await startSort(list, algorithm, speed);
             console.log(sorted);
             return sorted;
         }
 
-        start().then((sorted) => {
-            hideMessage();
-            showStartButton();
-            enableControls();
-            console.log("end");
-            generateChart(sorted, null, colours.GREEN);
-            SORTED = true;
-        });
+        launch()
+            .then((sorted) => {
+                console.log("Sorting complete");
+                hideMessage();
+                showStartButton();
+                enableControls();
+                generateChart(sorted, null, colours.GREEN);
+                SORTED = true;
+            })
+            .catch(() => console.log("Error occurred."));
     }
 });

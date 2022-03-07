@@ -76,7 +76,6 @@ const getSortParams = () => {
 async function startSort(list, algorithm, speed) {
     switch (algorithm) {
         case "bubble":
-            console.log("bubble");
             const bubble = await bubbleSort(list, speed);
             return bubble;
         case "merge":
