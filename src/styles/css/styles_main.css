@@ -1,3 +1,8 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 body {
   font-family: 'Hubballi', cursive;
 }
@@ -14,24 +19,6 @@ button {
   border: none;
 }
 
-.primary {
-  color: #fff;
-  background-color: #1b71c7;
-}
-
-.primary:hover {
-  background-color: red;
-}
-
-.secondary {
-  color: #fff;
-  background-color: #eb6b34;
-}
-
-.secondary:hover {
-  background-color: pink;
-}
-
 .label {
   margin: 0;
   text-align: center;
@@ -40,15 +27,23 @@ button {
   font-weight: bold;
 }
 
+.hidden {
+  display: none;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
 #controls {
   margin: 15px auto;
   padding: 10px;
   width: 1000px;
-  display: -ms-grid;
-  display: grid;
   color: white;
   background: #3d3d3d;
   border-radius: 15px;
+  display: -ms-grid;
+  display: grid;
   -ms-grid-rows: ()[auto-fill];
       grid-template-rows: repeat(auto-fill);
   -ms-grid-columns: (1fr)[3];
@@ -157,14 +152,6 @@ button {
 
 #controls .start button:hover {
   background-color: #1c7610;
-}
-
-.hidden {
-  display: none;
-}
-
-.disabled {
-  pointer-events: none;
 }
 
 button:disabled, button[disabled] {

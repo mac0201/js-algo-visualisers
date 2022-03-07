@@ -47,29 +47,5 @@ btn_start.addEventListener("click", () => {
             generateChart(sorted, null, colours.GREEN);
             SORTED = true;
         });
-
-        // x()
-        //     .then((m) => console.log(m))
-        //     .catch((err) => console.log(err));
-        // const sorted = await bubbleSort(params[0], 0);
     }
-    // disableControls();
-    // !! Start button should be disabled until speed and algorithm is set
-
-    // !! Disable all controls
-
-    // !! Enable when sorting is done
-
-    // console.log(speeds.length);
-
-    // for (let i = 0; i < speeds.length; i++) {
-    //     if (speeds[i].checked) {
-    //         console.log("checked");
-    //         console.log(speeds[i]);
-    //     }
-    // }
-    // updateOverview();
-
-    // console.log(speed_settings2);
-    // console.log(speed_settings);
 });

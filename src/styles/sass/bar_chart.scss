@@ -1,7 +1,6 @@
 @import '../sass/mixins.scss';
 
 #chart_container {
-
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -9,15 +8,10 @@
     width: 1000px;
     height: 500px;
     margin: 0 auto;
-    // border: 1px solid blue;
 }
 
-
 .bar {
-    // background-color: yellow;
     background: red;
     width: 20px;
     border: 1px solid lightgray;
-
-
 }

@@ -1,4 +1,4 @@
-//! this file will contain helper functions and an object with colours
+//! this file contains helper functions
 const colours = {
     RED: "#ff4b25",
     GREEN: "#6cc230",
@@ -9,18 +9,21 @@ const colours = {
     ORANGE: "#fea122",
 };
 
+// Sorting speeds can be adjusted here (milliseconds)
 const speeds_ms = {
     slow: 200,
     medium: 50,
     fast: 1,
 };
 
+// Clears specified div
 const clearDiv = (div_name) => {
     div_name.innerHTML = "";
 };
 
 const overview = document.querySelector(".overview");
 
+// Displays overview section
 const toggleOverview = () => {
     overview.style =
         "display: flex; \
@@ -28,8 +31,8 @@ const toggleOverview = () => {
         align-items: center;";
 };
 
+// Updates overview section with current sort settings
 const updateOverview = () => {
-    // element.classList.remove("mystyle");
     toggleOverview();
 
     const div = document.querySelector(".overview");
@@ -51,6 +54,7 @@ const updateOverview = () => {
     span_algo.innerHTML = chosen_algo;
 };
 
+// Gets radio button's value and returns it
 const getCheckedRadio = (parent) => {
     for (let i = 0; i < parent.length; i++) {
         if (parent[i].checked) {

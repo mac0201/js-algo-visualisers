@@ -27,16 +27,14 @@ const createBar = (value, colour) => {
 };
 
 // Generates a chart by creating required number of bars based on list length
-const generateChart = (numbers, j = null, colour = listColour) => {
+const generateChart = (numbers, sortedIndices, colour = listColour) => {
     clearDiv(parent);
     for (let i = 0; i < numbers.length; i++) {
-        // createBar(numbers[i], "yellow");
-        // if (i == j) {
-        //     createBar(numbers[i], colours.RED);
-        // } else {
-        //     createBar(numbers[i], defaultColor);
-        // }
-        createBar(numbers[i], colour);
+        if (sortedIndices && sortedIndices.includes(i)) {
+            createBar(numbers[i], colours.GREEN);
+        } else {
+            createBar(numbers[i], colour);
+        }
     }
 };
 

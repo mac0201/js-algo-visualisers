@@ -1,6 +1,11 @@
 * {
-    
-    // font-size: 20px;
+    box-sizing: border-box;
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 body {
@@ -11,34 +16,12 @@ h1 {
     color: red;
 }
 
-
 button {
     width: 80px;
     height: 30px;
     margin: 0 15px;
     border-radius: 5px;
     border: none;
-}
-
-
-
-
-.primary {
-    color: #fff;
-    background-color: #1b71c7;
-}
-
-.primary:hover {
-    background-color: red;
-}
-
-.secondary {
-    color: #fff;
-    background-color: #eb6b34;
-}
-
-.secondary:hover {
-    background-color: pink;
 }
 
 .label {
@@ -49,40 +32,23 @@ button {
     font-weight: bold;
 }
 
-
-
-
-@mixin flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.hidden {
+    display: none;
 }
 
-
-
-
+.disabled {
+    pointer-events: none;
+}
 #controls {
-    // border: 1px solid red;
-
     margin: 15px auto;
-
     padding: 10px;
-
     width: 1000px;
-
-    display: grid;
-
     color: white;
-
     background: #3d3d3d;
-
     border-radius: 15px;
-    // grid-template-rows: repeat(4, 1fr);//auto 1fr 2fr auto;
-
+    display: grid;
     grid-template-rows: repeat(auto-fill);
     grid-template-columns: repeat(3, 1fr);
-
-   
 
     .array_settings {
         grid-row: 2;
@@ -91,7 +57,6 @@ button {
         
         #size_slider {
             @include flex-center;
-    
             span {
                 margin: 0 10px;
                 font-size: 17px;
@@ -102,27 +67,21 @@ button {
     .algo_settings {
         grid-column: 3;
         grid-row: 2;
-        // margin: 5px 0;
-
         @include flex-center;    
     }
 
     .speed_settings {
         grid-column: 1;
         grid-row: 2;
-
         @include flex-center;
     }
 
     .overview {
         grid-row: 3;
         grid-column: 1 / span 3;
-
         display: hidden;
-
         font-weight: bold;
         text-transform: uppercase;
-
 
         p {
             margin: 15px 30px;
@@ -131,14 +90,11 @@ button {
         span {
             font-weight: normal;
         }
-
-
     }
 
     .start {
         grid-row: 4;
         grid-column: 2;
-
         margin: 10px;
         text-align: center;
 
@@ -152,56 +108,29 @@ button {
                 background-color: rgb(28, 118, 16);
             }
         }
-
-        // button {
-        //     margin: 10px 0;
-        //     background-color: red;
-        //     color: white;
-
-        //     &:hover {
-        //         background-color: pink;
-        //     }
-        // }
     }
 }
 
-.hidden {
-    display: none;
-}
-
-.disabled {
-    pointer-events: none;
-}
 
 button:disabled, button[disabled]  {
     background-color: grey;
     color: white;
 }
 
-
-// input[type="radio"] {
-//     appearance: none;
-// }
-
-
-
 .alert_message {
     @include flex-center;
 
-    // display: none;
-    
     grid-column: 1 / span 3;
     background-color: #8bcbe4;
-
     border-radius: 10px;
     text-transform: uppercase;
     font-weight: bold;
-
-    // border: 1px solid red;
     width: 350px;
     text-align: center;
     height: 30px;
     margin: 0 auto;
     color: #000;
-
 }
+
+
+
